@@ -1,3 +1,4 @@
+-- Active: 1758849040086@@127.0.0.1@5432@docker
 ## CRIAR o banco postgres
 ## docker run -d --name database -p 5432:5432 -e POSTGRES_PASSWORD=teste123 -e POSTGRES_DB=docker -e POSTGRES_USER=docker postgres:17
 
