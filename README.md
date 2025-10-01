@@ -33,8 +33,8 @@ Cada pasta corresponde a um módulo do curso e contém os exercícios e as solu�
 | Diretório                   | Foco dos Exercícios (Módulo do Curso)              | Status |
 | :-------------------------- | :------------------------------------------------- | :----- |
 | `01-primeiros-passos`       | Prática com comandos básicos do Docker CLI.        | 🟢 |
-| `02-mergulhando-containers` | Exercícios de isolamento e recursos de containers. | 🟡 |
-| `03-criando-imagens`        | Desafios de otimização de Dockerfiles.             | ⬜️ |
+| `02-mergulhando-containers` | Exercícios de isolamento e recursos de containers. | 🟢 |
+| `03-criando-imagens`        | Desafios de otimização de Dockerfiles.             | 🟡 |
 | `04-explorando-volumes`     | Labs sobre bind mounts, volumes e data-only.       | ⬜️ |
 | `05-navegando-redes`        | Configuração de redes customizadas e *linking*.    | ⬜️ |
 | `06-docker-compose`         | Desafios de orquestração de stacks de aplicações.  | ⬜️ |
