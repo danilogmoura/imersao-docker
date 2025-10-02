@@ -1,5 +1,5 @@
 # Use a imagem oficial do Node.js 18 Alpine como imagem base
-FROM node:18-alpine
+FROM node:18-alpine AS build
 
 # Define um argumento de build para o ambiente (padrão é 'dev')
 ARG ENV=dev
@@ -19,18 +19,17 @@ COPY . .
 # Constrói a aplicação Angular com base no ambiente especificado
 RUN npm run build:$ENV
 
-# Expõe a porta 80 para a aplicação
-EXPOSE 80
+# Segunda etapa: imagem de produção com Nginx
+FROM nginx:1.21-alpine
 
-# Instalar Nginx e configurar para servir o build
-RUN apk update && \ 
-    apk add --no-cache nginx && \
-    mkdir -p /run/nginx /usr/share/nginx/html/ && \
-    cp -r /app/dist/algamoney-ui/* /usr/share/nginx/html && \
-    rm -rf /var/cache/apk/*
+# Copia os arquivos buildados da primeira etapa para o diretório do Nginx
+COPY --from=build /app/dist/algamoney-ui/ /usr/share/nginx/html
 
 # Copiar configuração customizada do Nginx
 COPY ./nginx.conf /etc/nginx/nginx.conf 
+
+# Expõe a porta 80 para a aplicação
+EXPOSE 80
 
 # Comando padrão para iniciar o Nginx
 CMD ["nginx", "-g", "daemon off;"]
