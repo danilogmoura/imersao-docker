@@ -1,0 +1,37 @@
+# Arquivos e diretórios que não devem ser copiados para o container
+# Isso melhora performance do build e reduz tamanho da imagem
+
+# Cache do Gradle (será recriado no container)
+.gradle/
+build/
+
+# Arquivos de IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de versionamento (se não for necessário no container)
+.git/
+.gitignore
+
+# Documentação (se não for necessária no container)
+README.md
+*.md
+
+# Arquivos de configuração local
+.env
+.env.local
+
+# Arquivos de teste (se não for necessário no container)
+src/test/
